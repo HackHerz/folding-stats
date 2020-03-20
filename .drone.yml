@@ -1,0 +1,23 @@
+---
+kind: pipeline
+name: default
+
+steps:
+  - name: Generate Stats Page  
+    image: python:3
+    steps:
+      - apk update && apk add --no-cache bash wget bzip2 gawk
+      - pip install jinja2
+      - bash -c stats.sh > stats.json
+      - python generate.py
+
+  - name: Upload to Minio (S3)
+    image: plugins/s3
+    settings:
+      bucket: folding-stats
+      access_key:
+        from_secret: access_key
+      secret_key:
+        from_secret: secret_key
+      source: index.html
+      target: /

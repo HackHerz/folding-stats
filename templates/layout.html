@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Oh nein...</title>
+	<style>
+body{
+	font-family: 'Ropa Sans', sans-serif;
+	margin: 0px;
+	background-color: #e1e1e1;
+}
+.error-main{
+	margin: 150px auto;
+	text-align: center;
+}
+.error-heading{
+	margin: 0 auto;
+	border-radius: 5px;
+	box-shadow: 0px 7px 15px -10px #000;
+}
+.error-heading h1{
+	margin: 0;
+	background-color: #C81F3E;
+	font-size: 80px;
+	color: #f1f1f1;
+}
+.error-main h2{
+	font-size: 36px;
+	color: #C81F3E;
+	text-shadow: 1px 2px 1px #c1c1c1;
+}
+.error-member {
+	color: #797979;
+	text-align: left;
+	width: 500px;
+	margin: auto;
+}
+
+.error-member thead {
+	font-weight: bold;
+}
+	</style>
+	<body>
+		<div class="error-main">
+			<div class="error-heading">
+				<h1>{{ teamname }}</h1>
+			</div>
+
+			<h2>Stats</h2>
+
+			<div class="error-member">
+			<ul>
+				<li>Score: {{ score }}</li>
+				<li>Working Units: {{ wu }}</li>
+			</ul>
+			</div>
+
+			<h2>Members</h2>
+
+			<div class="error-member"><table style="width: 100%;">
+				<thead>
+						<td>Name</td>
+						<td>Score</td>
+						<td>Working Units</td>
+				</thead>
+				<tbody>
+					{% for member in members -%}
+					<tr>
+						<td>{{ member.name }}</td>
+						<td>{{ member.score }}</td>
+						<td>{{ member.wu }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+
+
+			<p>Generated with data from: {{ date }}</p>
+			</div>
+		</div>
+	</body>
+</html>
