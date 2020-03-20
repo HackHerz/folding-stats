@@ -4,7 +4,7 @@ name: default
 
 steps:
   - name: Generate Stats Page  
-    image: python:3
+    image: python:3.7.7-alpine
     steps:
       - apk update && apk add --no-cache bash wget bzip2 gawk
       - pip install jinja2
