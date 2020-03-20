@@ -21,3 +21,5 @@ steps:
         from_secret: secret_key
       source: index.html
       target: /
+      path_style: true
+      endpoint: https://s3.fckggl.de
