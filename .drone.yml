@@ -8,7 +8,7 @@ steps:
     commands:
       - apk update && apk add --no-cache bash wget bzip2 gawk
       - pip install jinja2
-      - bash -c stats.sh > stats.json
+      - bash -c ./stats.sh > stats.json
       - python generate.py
 
   - name: Upload to Minio (S3)
